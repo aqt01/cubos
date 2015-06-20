@@ -1,8 +1,43 @@
     <!DOCTYPE html>
     <!doctype html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+$("#button").click(function(){
+        $.post('http//127.0.0.1:5000/api/receive_colors', $("#lol").serialize(), function(response) {
+                    //code
+                }, 'json');
+        });
+
+
+$(document).ready(function(){
+          $("#button").click(function(){
+                  alert("Hello");
+                    });
+          });
+</script>
+
+<input type="button" id="button" value="Click me">
+
+
+
 <title>Hello from Flask</title>
 {% if name %}
 <h1>Hello {{ name }}!</h1>
 {% else %}
 <h1>Hello World!</h1>
 {% endif %}
+<form action="" method = "post">    
+        <input id="lol" type="submit" name="color" value="RED">
+    </form>
+<form action="http://127.0.0.1:5000/api/receive_colors" method="post">
+        <input type="submit" name="color" value="WHITE">
+    </form>
+<form action="http://127.0.0.1:5000/api/receive_colors" method="post">
+        <input type="submit" name="color" value="BLUE">
+    </form>
+<form action="http://127.0.0.1:5000/api/receive_colors" method="post">
+        <input type="submit" name="color" value="GREEN">
+    </form>
