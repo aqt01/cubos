@@ -2,7 +2,20 @@
     <!doctype html>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<input type="button" id="button" value="Click me">
+
+
+<title>Hello from Flask</title>
+{% if name %}
+<h1>Hello {{ name }}!</h1>
+{% else %}
+<h1>Hello World!</h1>
+{% endif %}
+
+
+<input type="button" id="button" value="RED">
+<input type="button" id="button2" value="BLUE">
+<input type="button" id="button1" value="GREEN">
+<input type="button" id="button3" value="WHITE">
 
 
 <script>
@@ -20,21 +33,49 @@ $("#button").click(function( event){
 
 
 
-<title>Hello from Flask</title>
-{% if name %}
-<h1>Hello {{ name }}!</h1>
-{% else %}
-<h1>Hello World!</h1>
-{% endif %}
+<script>
+$("#button1").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "GREEN"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
 
-<form action="" method = "post">    
-        <input id="lol" type="button" name="color" value="RED">
-<form action="http://127.0.0.1:5000/api/receive_colors" method="post">
-        <input type="submit" name="color" value="WHITE">
-    </form>
-<form action="http://127.0.0.1:5000/api/receive_colors" method="post">
-        <input type="submit" name="color" value="BLUE">
-    </form>
-<form action="http://127.0.0.1:5000/api/receive_colors" method="post">
-        <input type="submit" name="color" value="GREEN">
-    </form>
+</script>
+
+<script>
+$("#button2").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "BLUE"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
+
+</script>
+
+<script>
+$("#button3").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "WHITE"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
+
+</script>
+
+
+
+
+
+
+
+
