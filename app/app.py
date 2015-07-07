@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 from flask import request
 from util import processor
-import requests
 import json
 
 app = Flask(__name__)
@@ -15,12 +14,13 @@ def home(name=None):
 
 @app.route('/api/receive_colors', methods=['GET','POST'])
 def receive_colors():
-    import ipdb
-    ipdb.set_trace()
-    print request._data
-    data= request.data
-    processor.color_processor(data)            
+    print request.content
     return data
+
+@app.route('/api/receive', methods=['GET','POST'])
+def receive():
+    print request
+
 
 # A Naive approach
 """

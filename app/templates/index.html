@@ -2,24 +2,21 @@
     <!doctype html>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<input type="button" id="button" value="Click me">
+
 
 <script>
+$("#button").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "RED"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
 
-$("#button").click(function(){
-        $.post('http//127.0.0.1:5000/api/receive_colors', $("#lol").serialize(), function(response) {
-                    //code
-                }, 'json');
-        });
-
-
-$(document).ready(function(){
-          $("#button").click(function(){
-                  alert("Hello");
-                    });
-          });
 </script>
-
-<input type="button" id="button" value="Click me">
 
 
 
@@ -29,9 +26,9 @@ $(document).ready(function(){
 {% else %}
 <h1>Hello World!</h1>
 {% endif %}
+
 <form action="" method = "post">    
-        <input id="lol" type="submit" name="color" value="RED">
-    </form>
+        <input id="lol" type="button" name="color" value="RED">
 <form action="http://127.0.0.1:5000/api/receive_colors" method="post">
         <input type="submit" name="color" value="WHITE">
     </form>
