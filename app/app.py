@@ -3,12 +3,19 @@ from flask import request
 from util import processor
 import json
 
+# Timer for total calc
+import time
+from threading import Timer
+
+
+
 app = Flask(__name__)
 """
 app.config['SECRET_KEY'] = 'F34TF$($e34D';
 """
 
 color_mixer = processor.Color_Mixer()
+
 @app.route('/')
 def home(name=None):
     return render_template('index.html',name=name)
@@ -19,4 +26,7 @@ def receive_colors():
     color_mixer.color_processor( color.split("=")[1] )
 
 if __name__ == "__main__":
+    # Timer for checking total every time
+    timer = processor.RepeatedTimer(5,color_mixer.total_cal)
     app.run()
+
