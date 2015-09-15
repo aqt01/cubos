@@ -17,6 +17,14 @@
 <input type="button" id="button1" value="GREEN">
 <input type="button" id="button3" value="WHITE">
 
+<p>
+<input type="button" id="button4" value="FLASH">
+<input type="button" id="button5" value="STROBE">
+<input type="button" id="button6" value="FADE">
+<input type="button" id="button7" value="SMOOTH">
+
+
+
 
 <script>
 $("#button").click(function( event){
@@ -73,9 +81,57 @@ $("#button3").click(function( event){
 </script>
 
 
+<script>
+$("#button4").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "FLASH"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
+
+</script>
 
 
+<script>
+$("#button5").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "STROBE"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
 
+</script>
 
+<script>
+$("#button6").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "FADE"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
+
+</script>
+
+<script>
+$("#button7").click(function( event){
+//        event.preventDefault();
+        $.post("/api/receive_colors",
+        {
+        color: "SMOOTH"
+        },                                         
+        function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);                                        });
+         });
+
+</script>
 
 
