@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'F34TF$($e34D';
 """
 
-color_mixer = processor.Color_Mixer()
+color_mixer = processor.Color_Proc()
 
 @app.route('/')
 def home(name=None):
