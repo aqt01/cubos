@@ -114,7 +114,7 @@ class Color_Proc:
         15: WHITE
         """
  
-        total = self.red + self.green + self.blue
+        total = self.red + self.green + self.blue + self.white
 
 # Gets the total color if the color clicked has 40% or more of the total clicks
         
@@ -219,7 +219,7 @@ class Color_Proc:
 
         # If its a color,detect the numbers of clicks and proccess it
 
-        if ( max_val_func == 'RED' or max_val_func=='BLUE' or max_val_func=='GREEN' ):
+        if ( max_val_func == 'RED' or max_val_func=='BLUE' or max_val_func=='GREEN' or max_val_func=='WHITE' ):
             self.fn_to_snd( self.color_mixer(max_val_func,value_time) )
         
         elif (max_val_func=='FLASH'):
